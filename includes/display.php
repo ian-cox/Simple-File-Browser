@@ -9,9 +9,6 @@ require_once('../config.php');
 $directory = "http://".$domain."/".$filefolder."/";
 $file = $_GET['file'];
 $ext = $_GET['ext'];
-$imgext = array('jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg'); //Image Files
-$textext = array('txt', 'rtf', 'md', 'html', 'htm','css', 'scss', 'js'); //Text Files
-$videoext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video Files
 ?>
 
 <head>
@@ -42,14 +39,19 @@ $videoext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video File
   <section class="display-content container">
   <?php 
   // IF IMAGE
-  if (in_array($ext, $imgext)){ ?>
+  if (in_array($ext, $image_ext)){ ?>
+      <img src='<?php echo $directory.$file.'.'.$ext;?>'>
+  <?php };
+
+
+  if (in_array($ext, $font_ext)){ ?>
       <img src='<?php echo $directory.$file.'.'.$ext;?>'>
   <?php } ?>
 
 
     <?php 
   // IF TEXT
-  if (in_array($ext, $textext)){ ?>
+  if (in_array($ext, $text_ext)){ ?>
   <section class="wrapper">
     <pre class="language-css">
     <code class="language-css"> 
@@ -62,7 +64,7 @@ $videoext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video File
 
   <?php 
   // IF ZIP
-  if($ext === 'zip'){?>
+  if (in_array($ext, $archive_ext)){ ?>
   <section id="download" class="wrapper">
     <div class="file-type">
       <img src="../includes/thumb.php?width=600&amp;height=300&amp;image=/<?= $icon_other ?>">
@@ -74,7 +76,7 @@ $videoext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video File
 
   <?php 
   // IF Video
-  if (in_array($ext, $videoext)){ ?>
+  if (in_array($ext, $video_ext)){ ?>
     <section id="image" class="wrapper">
       <video src='<?php echo $directory.$file.'.'.$ext;?>' autoplay width="auto" controls>
         Sorry, your browser doesn't support embedded videos.
@@ -86,7 +88,7 @@ $videoext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video File
     
   
   <?php // If TEXT: apply syntax highlighting JS
-  if (in_array($ext, $textext)){ ?>
+  if (in_array($ext, $text_ext)){ ?>
   <script src="http://<?php echo $domain ?>/assets/js/prism.js"></script>  
   <?php }?>
   </section>

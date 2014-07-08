@@ -68,13 +68,10 @@
                     <div class="block">
                     
                         <?php
-                        $imageext = array("jpg", "jpeg", "gif", "png");
-                        $fontext = array("otf", "ttf");
                         $acwd = substr($cwd, strlen ($filefolder));
         
-        
                         //if $file is an IMAGE
-                        if(in_array(f::extension($file),$imageext)):?>
+                        if(in_array(f::extension($file),$image_thumb_ext)):?>
                             <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
                                 <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $cwd.'/'.$file?>">
                                 <span class="label"><?php echo $file ?></span>
@@ -82,7 +79,7 @@
         
                         <?php
                         //if $file is an FONT
-                            elseif(in_array(f::extension($file),$fontext)):?>
+                            elseif(in_array(f::extension($file),$font_ext)):?>
                             <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
                                 <?php fontThumb($cwd.'/'.$file, $file, $thumbfolder);?>
                                 <img src="<?php echo $thumbfolder.'/'.$file?>.png">
@@ -98,7 +95,7 @@
                             </a>
                         <?php
                         //if $file is a FOLDER
-                            elseif(f::extension($file)=='zip'):?>
+                            elseif(in_array(f::extension($file),$archive_ext)):?>
                             <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
                                 <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_zip ?>">
                                 <span class="label"><?php echo $file ?></span>

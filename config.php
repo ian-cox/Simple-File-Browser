@@ -29,6 +29,14 @@ $excludefiles = array("hid","noo");
 //	      DON'T EDIT THE CODE BELOW			//
 //==========================================//
 
+//File Types
+$image_thumb_ext = array("jpg", "jpeg", "gif", "png"); //Image files that can be resized with thumb.php
+$image_ext = array('jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg'); //Image Files (ALL)
+$font_ext = array('otf','ttf'); //Font Files
+$text_ext = array('txt', 'rtf', 'md', 'html', 'htm','css', 'scss', 'js'); //Text Files
+$video_ext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video Files
+$archive_ext = array('zip','tar','7z','rar','tgz','hqx','sit','sitx','iso','dmg','bz2');
+
 //Built Root Path
 //$root = server::get('document_root');
 $root = $_SERVER['DOCUMENT_ROOT'];

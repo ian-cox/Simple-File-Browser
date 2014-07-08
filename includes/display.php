@@ -74,6 +74,7 @@ $ext = $_GET['ext'];
       $rs = $ttf->getNameTable();
       //display result
       echo "<div class='FontPreview'>";
+      echo "Testing2";
       print_r($rs);
       echo '</div>';
     }

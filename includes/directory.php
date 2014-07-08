@@ -22,7 +22,7 @@
     endif;
     
     $i = 0;
-    foreach($bread as $crumb) {
+    foreach($bread as $crumb):
         $newpath .= $crumb;
         if($crumb != ''):
             // FOR FIRST BREAD CRUMB (ROOT), CHANGE DISPLAY VALUE TO $homename (var specified in config.php)
@@ -40,7 +40,7 @@
             <?php $i++;
         endif;
         $newpath .= '/';
-    };?>
+    endforeach;?>
 
     </nav><!--CRUMBS-->
     </div><!-- Container-->
@@ -59,74 +59,83 @@
         // READ DIR AND PRINT FILES
         $files = dir::read($root.'/'.$cwd);
         if(count($files)>0):; 
+            $hidden = 0;
             foreach($files as $file):;
-            ?>
             
-            <div class="block">
-                
-                <?php
-                $imageext = array("jpg", "jpeg", "gif", "png");
-                $fontext = array("otf", "ttf");
-                $acwd = substr($cwd, strlen ($filefolder));
-                
-                //if $file starts with a period or is in the list of excluded file types (Exclude list in Config.php)
-                if (substr($file, 0, 1) == '.' || in_array(f::extension($file),$excludefiles)):
-                //DO Nothing
+                //if $file does not start with a period and isnt an excluded file type (Excluded extension list in Config.php)
+                if(substr($file, 0, 1) !== '.' && !in_array(f::extension($file),$excludefiles)):?>
 
-                //if $file is an IMAGE
-                elseif(in_array(f::extension($file),$imageext)):?>
-                    <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
-                        <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $cwd.'/'.$file?>">
-                        <span class="label"><?php echo $file ?></span>
-                    </a>
-
-                <?php
-                //if $file is an FONT
-                    elseif(in_array(f::extension($file),$fontext)):?>
-                    <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
-                        <?php fontThumb($cwd.'/'.$file, $file, $thumbfolder);?>
-                        <img src="<?php echo $thumbfolder.'/'.$file?>.png">
-                        <span class="label"><?php echo $file ?></span>
-                    </a>    
-
-                <?php 
-                //if $file is a FOLDER
-                    elseif(f::extension($file)==null):?>
-                    <a class="js-changeDirForward folder" data-path="<?php echo $path.$file ?>">
-                        <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_folder ?>">
-                        <span class="label"><?php echo $file ?></span>
-                    </a>
-                <?php
-                //if $file is a FOLDER
-                    elseif(f::extension($file)=='zip'):?>
-                    <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
-                        <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_zip ?>">
-                        <span class="label"><?php echo $file ?></span>
-                    </a>
-                <?php                     
-                //if $file is none of the above
-                    else:?>
-                    <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
-                        <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_other ?>">
-                        <span class="label"><?php echo $file ?></span>
-                    </a>                        
-                <?php endif?>
-
-                
-                <?php //DELETE BUTTON ?>
-                <a class="delete js-deleteFile" data-path="<?php echo $path.$file ?>"></a>
-
-    
-            </div><!-- block -->
-
+                    <div class="block">
+                    
+                        <?php
+                        $imageext = array("jpg", "jpeg", "gif", "png");
+                        $fontext = array("otf", "ttf");
+                        $acwd = substr($cwd, strlen ($filefolder));
         
-        <?php endforeach;
-        else:;?>
+        
+                        //if $file is an IMAGE
+                        if(in_array(f::extension($file),$imageext)):?>
+                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                                <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $cwd.'/'.$file?>">
+                                <span class="label"><?php echo $file ?></span>
+                            </a>
+        
+                        <?php
+                        //if $file is an FONT
+                            elseif(in_array(f::extension($file),$fontext)):?>
+                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                                <?php fontThumb($cwd.'/'.$file, $file, $thumbfolder);?>
+                                <img src="<?php echo $thumbfolder.'/'.$file?>.png">
+                                <span class="label"><?php echo $file ?></span>
+                            </a>    
+        
+                        <?php 
+                        //if $file is a FOLDER
+                            elseif(f::extension($file)==null):?>
+                            <a class="js-changeDirForward folder" data-path="<?php echo $path.$file ?>">
+                                <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_folder ?>">
+                                <span class="label"><?php echo $file ?></span>
+                            </a>
+                        <?php
+                        //if $file is a FOLDER
+                            elseif(f::extension($file)=='zip'):?>
+                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                                <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_zip ?>">
+                                <span class="label"><?php echo $file ?></span>
+                            </a>
+                        <?php                     
+                        //if $file is none of the above
+                            else:?>
+                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                                <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_other ?>">
+                                <span class="label"><?php echo $file ?></span>
+                            </a>                        
+                        <?php endif?>
+                                
+
+                        <?php //DELETE BUTTON ?>
+                        <a class="delete js-deleteFile" data-path="<?php echo $path.$file ?>"></a>
+
+
+                    </div><!-- block -->
+
+                <?php
+                else: $hidden++;
+                endif?>
+        
+            <?php endforeach;
+
+        endif?>
+
+
+        <?php if(count($files)==$hidden):;?> 
             <div class="Alert">
             <h2>Alert:</h2>    
-            <?php echo "This folder is empty"; ?>
+            <?php echo "This folder is empty"; 
+            ?>
             </div>
         <?php
-        endif;    
-    ?>
+        endif;?>
+
+
 </div><!-- container -->

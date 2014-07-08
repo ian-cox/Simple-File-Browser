@@ -44,12 +44,31 @@ $ext = $_GET['ext'];
   <?php };
 
 
-  if (in_array($ext, $font_ext)){ ?>
-      <img src='<?php echo $directory.$file.'.'.$ext;?>'>
-  <?php } ?>
 
 
-    <?php 
+
+  // IF FONT
+  if (in_array($ext, $font_ext)):
+    require_once('../includes/font_info.php');
+    $ttf = new ycTIN_TTF();
+    //open font file
+    if ($ttf->open('../'.$cwd.'/'.$file.'.'.$ext)) {
+      //get name table
+      $rs = $ttf->getNameTable();
+      //display result
+      echo '<pre>';
+      print_r($rs);
+      echo '</pre>';
+    }
+
+  endif;
+
+
+
+
+
+
+
   // IF TEXT
   if (in_array($ext, $text_ext)){ ?>
   <section class="wrapper">

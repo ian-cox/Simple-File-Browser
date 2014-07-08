@@ -65,7 +65,7 @@ $videoext = array('mov', 'ogg', 'wav', 'mp4', 'ogm', 'ogv', 'm4v'); //Video File
   if($ext === 'zip'){?>
   <section id="download" class="wrapper">
     <div class="file-type">
-      <img src="../includes/image.php?width=600&amp;height=300&amp;image=/<?= $icon_other ?>">
+      <img src="../includes/thumb.php?width=600&amp;height=300&amp;image=/<?= $icon_other ?>">
     </div>
     <a href="<?php echo $directory.$file.'.'.$ext;?>" class="download button"><strong><?php echo $file;?></strong>.<?php echo $ext;?></a>
   </section>

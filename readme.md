@@ -6,17 +6,29 @@ The intent of this project is to create a simple responsive file browser to view
 
 [Monosnap](http://monosnap.com/) allows me to quickly upload and share files and screen shots via my FTP client.
 
-**A file located here:**
-		domain.com/files/file.jpg
+---
 
-**Can be previewed here:**
-		domain.com/a/file.jpg	
+### The .htaccess file re-routs files through display.php to make nice previews
 
-**Monosnap allows you to specify the upload folder:**
-/domain.com/files/
+A file located here:
+```
+	domain.com/files/file.jpg
+```
 
-**Monosnap also allows you to specify a base URL:**
-http://domain.com/a
+Can be previewed here:
+```
+	domain.com/a/file.jpg	
+```
+
+Monosnap allows you to specify the upload folder:
+```
+	/domain.com/files/
+```
+
+Monosnap also allows you to specify a base URL:
+```
+	http://domain.com/a
+```
 
 After the file is uploaded, Monosnap copies the baseurl+file to your clipboard for easy sharing.
 

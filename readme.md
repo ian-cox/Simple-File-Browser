@@ -2,8 +2,25 @@
 
 **Still in the very early stages of development**
 
-This file browser intends to be used as a viewer for uploaded files.
-To Upload files and screen shots, I'm using [Monosnap's](http://monosnap.com/) FTP feature to move files to my "files" directory.
+The intent of this project is to create a simple responsive file browser to view and manage randomly uploaded content.
+
+[Monosnap](http://monosnap.com/) allows me to quickly upload and share files and screen shots via my FTP client.
+
+**A file located here:**
+		domain.com/files/file.jpg
+
+**Can be previewed here:**
+		domain.com/a/file.jpg	
+
+**Monosnap allows you to specify the upload folder:**
+/domain.com/files/
+
+**Monosnap also allows you to specify a base URL:**
+http://domain.com/a
+
+After the file is uploaded, Monosnap copies the baseurl+file to your clipboard for easy sharing.
+
+---
 
 ### Features
 - Displays all files in "files" directory

@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} /a/.*
+RewriteRule ^a/(.*)\.(.*)$ includes/display.php?file=$1&ext=$2 [NC,L]
+
+RewriteCond %{THE_REQUEST} ^.*/index\.php 
+RewriteRule ^(.*)index.php$ /$1 [R=301,L]

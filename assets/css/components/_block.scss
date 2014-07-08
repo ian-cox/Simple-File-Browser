@@ -1,0 +1,30 @@
+.block{
+	@extend .grid;
+	@extend .fourth;
+    border-radius: .2em;
+    img{
+    	border-radius: .2em;
+    }
+}
+
+.block img{
+    width: 100%;
+}
+
+.label{
+	font-size: .6em;
+	margin-top: 0em;
+	margin-bottom: 3em;
+	color: #303240;
+	font-weight: 800;
+	color: lighten($background-color, 20%);
+	text-align: center;
+	display: block;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	line-height: 2em;
+	height: 1.8em;
+	z-index: 10;
+	//background-color: lighten($background-color, 5%);
+	overflow-y: hidden;
+}

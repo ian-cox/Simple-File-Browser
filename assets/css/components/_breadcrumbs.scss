@@ -1,0 +1,47 @@
+.breadcrumbs{
+    float: left;
+    margin-left: 1%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-family: 'Libre Baskerville', sans-serif;
+}
+
+.crumb:first-of-type:before{
+  // House Icon
+  content: "\e05e";
+  line-height: 3em;
+  font-family: 'outline';
+}
+
+.crumb{
+  cursor: pointer;
+}
+
+.crumb:after{
+  // Crumb Seperator
+  content: "\e05c";
+  margin-left: .4em;
+  color: $light;
+  cursor: auto;
+  font-family: "outline";
+}
+
+.crumb:last-of-type{
+  cursor: default;
+  color: lighten( $link-color, 20% )
+  
+}
+
+.crumb:last-of-type:after{
+  content: "";
+}
+
+.crumb:first-of-type{
+  color: $link-color;
+  &:hover{
+    color: $link-hover;
+  }
+}
+
+
+

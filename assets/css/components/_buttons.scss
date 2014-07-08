@@ -1,0 +1,32 @@
+.delete{
+	@extend .ico-trash;
+	font-family: "Outline";
+    position: absolute;
+    top: 0;
+    display: block;
+    z-index: 10;
+    right: 0;
+}
+
+.button{
+	display: inline-block;
+	width: auto;
+	color: white;
+	font-size: .8em;
+    text-align: center;
+    padding: .5em 1.5em;
+    border-radius: .3em;
+    border: 1px solid $link-color;
+    background-color: $background-color;
+    &:hover{
+    border: 1px solid #fff;
+    background-color: lighten($background-color, 2%);
+    color: #a0aed8;
+    }
+}
+
+.download{
+	margin: 3em auto;
+	text-align: center;
+}
+

@@ -18,7 +18,24 @@ $ext = $_GET['ext'];
   <meta name="robots" content="noindex">
   <meta property="og:title" content="<?php echo $file;?>">
   <link href="http://<?php echo $_SERVER['SERVER_NAME']?>/assets/css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <?php 
+    //Build @ FONT FACE RULES
+    if (in_array($ext, $font_ext)): ?>  
+      <style>
+        @font-face {
+        font-family: "FontPreview";
+        src: url("<?php echo $directory.$file.'.'.$ext ?>") format("opentype"); 
+        }
+        .FontPreview{
+        font-family: "FontPreview";
+        }
+      </style> 
+  <?php endif ?>
+
 </head>
+
+
 
 <body class="language-markup">
   <header>
@@ -56,9 +73,9 @@ $ext = $_GET['ext'];
       //get name table
       $rs = $ttf->getNameTable();
       //display result
-      echo '<pre>';
+      echo "<div class='FontPreview'>";
       print_r($rs);
-      echo '</pre>';
+      echo '</div>';
     }
 
   endif;

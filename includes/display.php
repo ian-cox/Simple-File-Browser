@@ -74,8 +74,10 @@ $ext = $_GET['ext'];
       $rs = $ttf->getNameTable();
       //display result
       echo "<div class='FontPreview'>";
-      echo "Testing2";
-      print_r($rs);
+      echo($rs['3::1::1033'][1]).' ';
+      echo($rs['3::1::1033'][2]).'<br>';
+      echo $lorem[array_rand($lorem)];
+      //print_r($rs);
       echo '</div>';
     }
 

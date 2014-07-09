@@ -77,6 +77,7 @@ $ext = $_GET['ext'];
       echo($rs['3::1::1033'][1]).' ';
       echo($rs['3::1::1033'][2]).'<br>';
       echo $lorem[array_rand($lorem)];
+      echo "<br><br>Reference URL: <a href='http://jsfiddle.net/mHnP8/'>http://jsfiddle.net/mHnP8/</a>";
       //print_r($rs);
       echo '</div>';
     }

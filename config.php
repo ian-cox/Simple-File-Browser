@@ -20,6 +20,19 @@ $thumbfolder = 'thumbs';
 // Based on the example below file.hid and file.noo would both be excluded
 $excludefiles = array("hid","noo");
 
+//LOREM/DEMO TEXT FOR FONT PREVIEW
+$lorem = array(
+'Lorem Ipsum Dolor Sit Amet',
+'Demo Text number one',
+'Demo Text number two',
+'Demo Text number three',
+'Demo Text number four',
+'Demo Text number five',
+'Demo Text number six',
+'Demo Text number seven',
+'Demo Text number eight',
+'Demo Text number nine',
+'Demo Text number ten');
 
 
 

@@ -22,17 +22,17 @@ $excludefiles = array("hid","noo");
 
 //LOREM/DEMO TEXT FOR FONT PREVIEW
 $lorem = array(
-'Lorem Ipsum Dolor Sit Amet',
-'Demo Text number one',
-'Demo Text number two',
-'Demo Text number three',
-'Demo Text number four',
-'Demo Text number five',
-'Demo Text number six',
-'Demo Text number seven',
-'Demo Text number eight',
-'Demo Text number nine',
-'Demo Text number ten');
+"Jackdaws love my big sphinx of quartz.",
+"The five boxing wizards jump quickly.",
+"Five quacking zephyrs jolt my wax bed.",
+"Vamp fox held quartz duck just by wing. ",
+"Quick fox jumps nightly above wizard.",
+"Five hexing wizard bots jump quickly.",
+"The quick onyx goblin jumps over the lazy dwarf.",
+"My faxed joke won a pager in the cable TV quiz show.",
+"Twelve ziggurats quickly jumped a finch box.",
+"The lazy major was fixing Cupid's broken quiver.",
+"Amazingly few discotheques provide jukeboxes.");
 
 
 

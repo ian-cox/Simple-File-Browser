@@ -97,6 +97,9 @@ $ext = $_GET['ext'];
       <hr>
       <a href="<?php echo $directory.$file.'.'.$ext;?>" class="download button"><strong><?php echo $file;?></strong>.<?php echo $ext;?></a>
       <?php 
+      echo "<pre>";
+      print_r ($rs);
+      echo "</pre>";
       endif;
   
 

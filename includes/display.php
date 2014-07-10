@@ -146,11 +146,25 @@ $ext = $_GET['ext'];
 
 
 <?php if(in_array($ext, $font_ext)):?>
-  <script>
-    $('#bigtext').bigtext({
-      maxfontsize: 1000 // default is 528 (in px)
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>  
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('body').addClass( "slowfadeInDown slowAnimated" );
+        function applyBigtext(){
+            $("#bigtext").bigtext({
+                childSelector: '> p',  
+            });
+        }
+        applyBigtext();
+        //a bug in chrome forces us to reapply bigtext once the page has finished rendering
+        setTimeout(function(){
+            applyBigtext();
+        }, 500);
+
     });
-  </script>
+</script>
+
 <?php endif; ?>
 </body>
 </html>

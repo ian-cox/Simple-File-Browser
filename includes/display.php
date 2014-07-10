@@ -30,21 +30,21 @@ $ext = $_GET['ext'];
         $ttf = new ycTIN_TTF();
         //open font file
         if ($ttf->open('../'.$cwd.'/'.$file.'.'.$ext)):
-        //get name table
-        $rs = $ttf->getNameTable();
-        ?>
+          //get name table
+          $rs = $ttf->getNameTable();?>
 
-      <style>
-        @font-face {
-        font-family: "fontPreview";
-        src: url("<?php echo $directory.$file.'.'.$ext ?>") format("opentype"); 
-        }
-        .fontPreview{
-        font-family: "fontPreview";
-        }
-      </style> 
-  <?php endif ?>
-
+          <style>
+            @font-face {
+            font-family: "fontPreview";
+            src: url("<?php echo $directory.$file.'.'.$ext ?>") format("opentype"); 
+            }
+            .fontPreview{
+            font-family: "fontPreview";
+            }
+          </style> 
+          <?php 
+        endif;
+    endif; ?>
 </head>
 
 
@@ -72,10 +72,10 @@ $ext = $_GET['ext'];
   <section class="display-content container">
   <?php 
   // IF IMAGE
-  if (in_array($ext, $image_ext)){ ?>
+  if (in_array($ext, $image_ext)):?>
       <img src='<?php echo $directory.$file.'.'.$ext;?>'>
-  <?php };
-
+  <?php endif;
+  
 
 
 
@@ -94,9 +94,11 @@ $ext = $_GET['ext'];
         <p>Population: 602</p>
         <p>Architecture and Brutalism</p>
       </div>
+      <hr>
+      <a href="<?php echo $directory.$file.'.'.$ext;?>" class="download button"><strong><?php echo $file;?></strong>.<?php echo $ext;?></a>
       <?php 
       endif;
-  endif;
+  
 
 
 

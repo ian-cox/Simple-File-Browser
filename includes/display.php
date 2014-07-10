@@ -18,17 +18,29 @@ $ext = $_GET['ext'];
   <meta name="robots" content="noindex">
   <meta property="og:title" content="<?php echo $file;?>">
   <link href="http://<?php echo $_SERVER['SERVER_NAME']?>/assets/css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+  <?php if(in_array($ext, $font_ext)):?>
+    <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/assets/js/jquery.min.js"></script>
+    <script src="http://<?php echo $_SERVER['SERVER_NAME']?>/assets/js/bigtext.js"></script>
+  <?php endif; ?>
 
   <?php 
     //Build @ FONT FACE RULES
-    if (in_array($ext, $font_ext)): ?>  
+    if (in_array($ext, $font_ext)):  
+        require_once('../includes/font_info.php');
+        $ttf = new ycTIN_TTF();
+        //open font file
+        if ($ttf->open('../'.$cwd.'/'.$file.'.'.$ext)):
+        //get name table
+        $rs = $ttf->getNameTable();
+        ?>
+
       <style>
         @font-face {
-        font-family: "FontPreview";
+        font-family: "fontPreview";
         src: url("<?php echo $directory.$file.'.'.$ext ?>") format("opentype"); 
         }
-        .FontPreview{
-        font-family: "FontPreview";
+        .fontPreview{
+        font-family: "fontPreview";
         }
       </style> 
   <?php endif ?>
@@ -40,7 +52,11 @@ $ext = $_GET['ext'];
 <body class="language-markup">
   <header>
     <div class="container">
-    <strong><?php echo basename($file);?></strong>.<?php echo $ext;?>
+    <?php if (in_array($ext, $font_ext)):
+        echo $rs['3::1::1033'][1].' '.$rs['3::1::1033'][2];
+    else:
+    echo "<strong>". basename($file).".".$ext;
+    endif;?>
     <!-- <ul class="menu"> 
       <li>
         <a href="<?php echo $file;?>.html#" class="trigger">Menu</a>
@@ -66,26 +82,21 @@ $ext = $_GET['ext'];
 
   // IF FONT
   if (in_array($ext, $font_ext)):
-    require_once('../includes/font_info.php');
-    $ttf = new ycTIN_TTF();
-    //open font file
-    if ($ttf->open('../'.$cwd.'/'.$file.'.'.$ext)) {
-      //get name table
-      $rs = $ttf->getNameTable();
-      //display result
-      echo "<div class='FontPreview'>";
-      echo($rs['3::1::1033'][1]).' ';
-      echo($rs['3::1::1033'][2]).'<br>';
-      echo $lorem[array_rand($lorem)];
-      echo "<br><br>Reference URL: <a href='http://jsfiddle.net/mHnP8/'>http://jsfiddle.net/mHnP8/</a>";
-      //print_r($rs);
-      echo '</div>';
-    }
-
+      //display result?>
+      <hr>
+      <div id='bigtext' class='fontPreview'>
+      <?php //echo $lorem[array_rand($lorem)]; ?>
+        <p>Ancient Rock Formations</p>
+        <p>Back in 1987</p>
+        <p>Man found burried under 16th St.</p>
+        <p>Automobile</p>
+        <p>Cats & Dogs</p>
+        <p>Population: 602</p>
+        <p>Architecture and Brutalism</p>
+      </div>
+      <?php 
+      endif;
   endif;
-
-
-
 
 
 
@@ -133,6 +144,14 @@ $ext = $_GET['ext'];
   <?php }?>
   </section>
 
+
+<?php if(in_array($ext, $font_ext)):?>
+  <script>
+    $('#bigtext').bigtext({
+      maxfontsize: 1000 // default is 528 (in px)
+    });
+  </script>
+<?php endif; ?>
 </body>
 </html>
 

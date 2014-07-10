@@ -7228,3 +7228,7 @@ nav {
 
 .display-content {
   margin-bottom: 4em; }
+
+.fontPreview p {
+  margin-top: 0;
+  margin-bottom: 0; }

@@ -53,7 +53,7 @@ $ext = $_GET['ext'];
   <header>
     <div class="container">
     <?php if (in_array($ext, $font_ext)):
-        echo $rs['3::1::1033'][1].' '.$rs['3::1::1033'][2];
+        echo $rs['1::0::0'][1].' '.$rs['1::0::0'][2];
     else:
     echo "<strong>". basename($file).".".$ext;
     endif;?>

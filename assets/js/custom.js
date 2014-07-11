@@ -42,7 +42,7 @@ function hideFile() {
 
     //  Delete File or Directory
     function deleteFile() {
-      $(this).parent().addClass("fadeOutUp animated");
+      $(this).parent().parent().addClass("fadeOutUp animated");
       if (confirm('Are you sure you want to delete this?')) {
       //Delete it
       var request = $.ajax({
@@ -54,7 +54,7 @@ function hideFile() {
       
       var that = this;
       request.done(function() {
-        $(that).parent().hide("slow");
+        $(that).parent().parent().hide("slow");
       });
    
       request.fail(function( jqXHR, textStatus ) {
@@ -62,11 +62,34 @@ function hideFile() {
       });
       //return false; 
     } else {  
-    $(this).parent().removeClass("fadeOutUp animated").addClass( "fadeInDown animated" );
+    $(this).parent().parent().removeClass("fadeOutUp animated").addClass( "fadeInDown animated" );
     }
     }
 
 
+    //  Show Display.PHP
+    function display() {
+      //$( "#loader" ).fadeIn( "slow");
+      $('body').addClass('fadeOutDown animated');
+      var request = $.ajax({
+        url: "includes/display.php",
+        type: "GET",
+        data: { dir : $(this).data('path') },
+        dataType: "html"
+      });
+
+   setTimeout(function() {
+      request.done(function( response ) {
+        $('html, body').animate({ scrollTop: 0 }, 0);
+        $( "#directory" ).html( response );
+        $('body').removeClass('fileviewer fadeOutDown animated').addClass('slowfadeInDown slowAnimated');
+      });
+   }, 450);
+      request.fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+      });
+      return false; 
+    }
 
 
 
@@ -123,6 +146,7 @@ function hideFile() {
 
     // Document Ready
     $(function () {
+      $('#directory').on('click', '.js-display', display);
       $('#directory').on('click', '.js-changeDirForward', changeDirForward);
       $('#directory').on('click', '.js-changeDirBackward', changeDirBackward);
       $('#directory').on('click', '.js-deleteFile', deleteFile);

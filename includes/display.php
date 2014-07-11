@@ -7,9 +7,20 @@ require_once('../config.php');
 <?php
 // Variables
 $directory = "http://".$domain."/".$filefolder."/";
-$file = $_GET['file'];
-$ext = $_GET['ext'];
+
+if (isset($_GET['dir'])):
+  $uniquepath = $_GET['dir'];
+  $path_parts = pathinfo($uniquepath);
+  $file = $path_parts['filename'];
+  $ext = $path_parts['extension'];
+else:
+  $file = $_GET['file'];
+  $ext = $_GET['ext'];
+endif;
+
 ?>
+
+
 
 <head>
   <meta charset="utf-8">
@@ -47,8 +58,6 @@ $ext = $_GET['ext'];
     endif; ?>
 </head>
 
-
-
 <body class="language-markup">
   <header>
     <div class="container">
@@ -65,7 +74,10 @@ $ext = $_GET['ext'];
         else:
         echo "<strong>".basename($file)."</strong>.".$ext;
         endif;
-    endif;?>
+    else:
+    echo "<strong>".basename($file)."</strong>.".$ext;
+    endif;
+    ?>
     <!-- <ul class="menu"> 
       <li>
         <a href="<?php echo $file;?>.html#" class="trigger">Menu</a>
@@ -182,4 +194,3 @@ $ext = $_GET['ext'];
 <?php endif; ?>
 </body>
 </html>
-

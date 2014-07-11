@@ -66,52 +66,49 @@
                 if(substr($file, 0, 1) !== '.' && !in_array(f::extension($file),$excludefiles)):?>
 
                     <div class="block">
-                    
+
                         <?php
                         $acwd = substr($cwd, strlen ($filefolder));
-        
                         //if $file is an IMAGE
                         if(in_array(f::extension($file),$image_thumb_ext)):?>
-                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
-                                <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $cwd.'/'.$file?>">
-                                <span class="label"><?php echo $file ?></span>
-                            </a>
-        
+                            <a class="js-display" data-path="<?php echo $path.$file ?>">
+                                <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $cwd.'/'.$file?>"> 
                         <?php
                         //if $file is an FONT
                             elseif(in_array(f::extension($file),$font_ext)):?>
-                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                            <a class="js-display" data-path="<?php echo $path.$file ?>">
                                 <?php fontThumb($cwd.'/'.$file, $file, $thumbfolder);?>
-                                <img src="<?php echo $thumbfolder.'/'.$file?>.png">
-                                <span class="label"><?php echo $file ?></span>
-                            </a>    
-        
+                                <img src="<?php echo $thumbfolder.'/'.$file?>.png">    
                         <?php 
                         //if $file is a FOLDER
                             elseif(f::extension($file)==null):?>
                             <a class="js-changeDirForward folder" data-path="<?php echo $path.$file ?>">
                                 <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_folder ?>">
-                                <span class="label"><?php echo $file ?></span>
-                            </a>
                         <?php
                         //if $file is a FOLDER
                             elseif(in_array(f::extension($file),$archive_ext)):?>
-                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                            <a class="js-display" data-path="<?php echo $path.$file ?>">
                                 <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_zip ?>">
-                                <span class="label"><?php echo $file ?></span>
-                            </a>
                         <?php                     
                         //if $file is none of the above
                             else:?>
-                            <a href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>">
+                            <a class="js-display" data-path="<?php echo $path.$file ?>">
                                 <img src="includes/thumb.php?width=300&amp;height=300&amp;cropratio=1:1&amp;image=/<?= $icon_other ?>">
-                                <span class="label"><?php echo $file ?></span>
-                            </a>                        
                         <?php endif?>
+                                <?php //File Action Buttons ?>
                                 
+                                <span class="label"><?php echo $file ?></span>
+                                <div class="actions">
+                                    <?php if(!f::extension($file)==null):?>
+                                    <a class="link" href="<?php echo 'http://'.$domain.'/a'.$acwd.'/'.$file?>"></a>
+                                    <?php endif ?>
+                                    <a class="direct" href="<?php echo $path.$file?>"></a>
+                                    <a class="delete js-deleteFile" data-path="<?php echo $path.$file ?>"></a>
+                                </div>
+                            </a>
 
-                        <?php //DELETE BUTTON ?>
-                        <a class="delete js-deleteFile" data-path="<?php echo $path.$file ?>"></a>
+                        
+
 
 
                     </div><!-- block -->

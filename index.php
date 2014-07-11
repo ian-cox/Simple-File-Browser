@@ -14,7 +14,7 @@ require_once('config.php');
 	<script src="assets/js/jquery.min.js"></script>
 </head>
 
-<body id="fileviewer">
+<body class="fileviewer">
 	
 	<div id="directory">
 		<?php include('includes/directory.php') ?>

@@ -122,7 +122,7 @@ textarea {
 .ico-layout:before {
   content: "\e004"; }
 
-.ico-link:before {
+.ico-link:before, .link:before {
   content: "\e005"; }
 
 .ico-bell:before {
@@ -311,7 +311,7 @@ textarea {
 .ico-upload:before {
   content: "\e068"; }
 
-.ico-download:before {
+.ico-download:before, .direct:before {
   content: "\e069"; }
 
 .ico-location:before {
@@ -3790,7 +3790,7 @@ table {
 .ico-layout:before {
   content: "\e004"; }
 
-.ico-link:before {
+.ico-link:before, .link:before {
   content: "\e005"; }
 
 .ico-bell:before {
@@ -3979,7 +3979,7 @@ table {
 .ico-upload:before {
   content: "\e068"; }
 
-.ico-download:before {
+.ico-download:before, .direct:before {
   content: "\e069"; }
 
 .ico-location:before {
@@ -7225,34 +7225,24 @@ dt {
 .block {
   border-radius: .2em; }
   .block img {
-    border-radius: .2em; }
-
-.block img {
-  width: 100%; }
+    border-radius: .2em;
+    width: 100%; }
+  .block a {
+    display: inline-block; }
 
 .label {
   font-size: .6em;
-  margin-top: 0em;
-  margin-bottom: 3em;
   color: #303240;
   font-weight: 800;
   color: #4b4b5c;
   text-align: center;
   display: block;
+  padding-top: 1em;
   letter-spacing: .05em;
   text-transform: uppercase;
-  line-height: 2em;
-  height: 1.8em;
+  height: 1.3em;
   z-index: 10;
-  overflow-y: hidden; }
-
-.delete {
-  font-family: "Outline";
-  position: absolute;
-  top: 0;
-  display: block;
-  z-index: 10;
-  right: 0; }
+  overflow: hidden; }
 
 .button {
   width: auto;
@@ -7272,6 +7262,37 @@ dt {
 .download {
   margin: 3em auto;
   text-align: center; }
+
+.actions {
+  opacity: 0;
+  font-size: .8em;
+  line-height: 2.3em;
+  display: block;
+  text-align: center;
+  position: relative;
+  height: 2.5em;
+  top: -5em;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em; }
+
+.block img {
+  transition: opacity 0.5s ease; }
+
+.block:hover .actions {
+  transition: all .6s ease-in;
+  opacity: 1; }
+
+.block:hover img {
+  opacity: .1; }
+
+.block:hover .actions .thumb-icon, .block:hover .actions .delete, .block:hover .actions .link, .block:hover .actions .direct {
+  opacity: 1; }
+
+.thumb-icon, .delete, .link, .direct {
+  font-family: "Outline";
+  z-index: 10;
+  opacity: 0;
+  padding: 0 .5em; }
 
 .user {
   float: right;
@@ -7301,7 +7322,7 @@ header {
   transition: height, line-height 0.9s;
   line-height: 4.7em; }
 
-#fileviewer header {
+.fileviewer header {
   position: fixed; }
 
 .shrink {

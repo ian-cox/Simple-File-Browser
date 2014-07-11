@@ -52,10 +52,19 @@ $ext = $_GET['ext'];
 <body class="language-markup">
   <header>
     <div class="container">
-    <?php if (in_array($ext, $font_ext)):
+    <?php //Check available font metadata and use value most likely to provide acurate font family and font style
+    if (in_array($ext, $font_ext)):
+        if (isset($rs['1::0::0'][16]) && isset($rs['1::0::0'][17])):
+        echo $rs['1::0::0'][16].' '.$rs['1::0::0'][17];
+        elseif (isset($rs['3::1::1033'][16]) && isset($rs['3::1::1033'][17])):
+        echo $rs['3::1::1033'][16].' '.$rs['3::1::1033'][17];
+        elseif (isset($rs['1::0::0'][1]) && isset($rs['1::0::0'][2])):
         echo $rs['1::0::0'][1].' '.$rs['1::0::0'][2];
-    else:
-    echo "<strong>". basename($file).".".$ext;
+        elseif (isset($rs['3::1::1033'][1]) && isset($rs['3::1::1033'][2])):
+        echo $rs['3::1::1033'][1].' '.$rs['3::1::1033'][2];
+        else:
+        echo "<strong>".basename($file)."</strong>.".$ext;
+        endif;
     endif;?>
     <!-- <ul class="menu"> 
       <li>
@@ -97,9 +106,9 @@ $ext = $_GET['ext'];
       <hr>
       <a href="<?php echo $directory.$file.'.'.$ext;?>" class="download button"><strong><?php echo $file;?></strong>.<?php echo $ext;?></a>
       <?php 
-      echo "<pre>";
-      print_r ($rs);
-      echo "</pre>";
+      //echo "<pre>";
+      //print_r ($rs);
+      //echo "</pre>";
       endif;
   
 

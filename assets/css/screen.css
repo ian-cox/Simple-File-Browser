@@ -7260,7 +7260,8 @@ dt {
     color: #a0aed8; }
 
 .download {
-  margin: 3em auto;
+  margin: 2em auto;
+  display: inline-block;
   text-align: center; }
 
 .actions {

@@ -166,9 +166,10 @@ endif;
   
   <?php // If TEXT: apply syntax highlighting JS
   if (in_array($ext, $text_ext)){ ?>
-  <script src="http://<?php echo $domain ?>/assets/js/prism.js"></script>  
+  <script src="http://<?php echo $domain?>/assets/js/prism.js"></script>  
   <?php }?>
   </section>
+
 
 
 <?php if(in_array($ext, $font_ext)):?>
@@ -190,6 +191,8 @@ endif;
 
     });
 </script>
+
+<script src="http://<?php echo $_SERVER['SERVER_NAME']?>/assets/js/custom.js"></script>    
 
 <?php endif; ?>
 </body>

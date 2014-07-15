@@ -1,4 +1,16 @@
 <?php 
+session_start(); // start session cookies
+require("includes/Login.class.php"); // pull in file
+$login = new Login; // create object login
+$login->authorize(); // make user login
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){ 
+  header('Location: index.php');
+}
+
+
+
+
 require_once('kirby/kirby.php');
 require_once('config.php');
 ?>

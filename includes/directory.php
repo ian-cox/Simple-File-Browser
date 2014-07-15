@@ -9,7 +9,10 @@
 
 <header>
     <div class="container">
-    <a href="<?= $dribbble['url'] ?>" class="user"><?= $dribbble['name'] ?></a>    
+    <a href="<?= $dribbble['url'] ?>" class="user"><?= $dribbble['name'] ?></a>
+    <form action="/" method="post">
+        <button class="button" type="submit" name="action" value="clear_login">Logout</button>
+    </form>
     <?php
     // BREAD CRUMBS
     $bread = explode("/", $path);?>

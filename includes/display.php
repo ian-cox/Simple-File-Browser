@@ -61,7 +61,10 @@ endif;
 <body class="language-markup">
   <header>
     <div class="container">
+    <a href="/">Back</a>  
+    <div class='filename'>
     <?php //Check available font metadata and use value most likely to provide acurate font family and font style
+
     if (in_array($ext, $font_ext)):
         if (isset($rs['1::0::0'][16]) && isset($rs['1::0::0'][17])):
         echo $rs['1::0::0'][16].' '.$rs['1::0::0'][17];
@@ -78,6 +81,7 @@ endif;
     echo "<strong>".basename($file)."</strong>.".$ext;
     endif;
     ?>
+    </div>
     <!-- <ul class="menu"> 
       <li>
         <a href="<?php echo $file;?>.html#" class="trigger">Menu</a>

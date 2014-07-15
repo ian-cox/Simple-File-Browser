@@ -37,6 +37,18 @@ nav{
 
 .display-content{
     margin-bottom: 4em;
+    img,video{
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.filename{
+    display: inline;
+    width: 100%;
+    text-align: center;
+    //display: block;
+    //margin: 0 auto;
 }
 
 .fontPreview p{

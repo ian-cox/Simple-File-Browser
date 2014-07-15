@@ -1,9 +1,9 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 /* Colors */
 /* HTML5 Boilerplate styles - h5bp.com (generated via initializr.com) */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 html,
 button,
 input,
@@ -7340,6 +7340,14 @@ nav {
 
 .display-content {
   margin-bottom: 4em; }
+  .display-content img, .display-content video {
+    display: block;
+    margin: 0 auto; }
+
+.filename {
+  display: inline;
+  width: 100%;
+  text-align: center; }
 
 .fontPreview p {
   margin-top: 0;

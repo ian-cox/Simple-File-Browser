@@ -2,9 +2,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+$primary-font: 'Open Sans';
 
 body {
-	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Sans-Serif;
+	font-family: $primary-font, "Helvetica Neue", Helvetica, Sans-Serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }

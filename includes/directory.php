@@ -9,10 +9,13 @@
 
 <header>
     <div class="container">
-    <a href="<?= $dribbble['url'] ?>" class="user"><?= $dribbble['name'] ?></a>
-    <form action="/" method="post">
-        <button class="button" type="submit" name="action" value="clear_login">Logout</button>
-    </form>
+    <ul class="dropdown">
+        <li><a class="name" href="<?= $dribbble['url'] ?>"><?= $dribbble['name'] ?></a></li>
+        <li><a class="user" href="#">User</a></li>
+        <li><form action="/" method="post"><button class="logout" type="submit" name="action" value="clear_login">Logout</button></form></li>
+        <li><a class="settings" href="#">Settings</a></li>
+        
+    </ul>        
     <?php
     // BREAD CRUMBS
     $bread = explode("/", $path);?>

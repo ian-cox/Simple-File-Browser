@@ -1,13 +1,57 @@
-.user{
-	//line-height:3em;
+.dropdown{
+	height: 1.5em;
+	overflow: hidden;
 	float: right;
-	margin-top: 1.1em;
-	
+	list-style-type: none;
+	&:hover{
+		height: auto;
+	}
+	button{
+		background-color: $background-color;
+		border: none;
+		color: $link-color;
+		padding: 0;
+		margin: 0;
+		font-family: $primary-font;
+		font-weight: 300;
+		&:hover{
+			color: #fff;
+		}
+	}
+}
+
+.logout{
+	&:before{
+	content: "\e086";
+	font-family: 'outline';
+	margin-right: .5em;
+	}
+}
+
+.settings{
+	&:before{
+	content: "\e023";
+	font-family: 'outline';
+	margin-right: .5em;
+	}
+}
+
+.user{
 	&:before{
 	content: "\e074";
 	font-family: 'outline';
 	margin-right: .5em;
 	}
+}
+
+.name{
+	&:after{
+	content: "\e05d";
+	//content: "\e120";
+	font-family: 'outline';
+	margin-left: .5em;
+	}
+	
 }
 
 .avatar{

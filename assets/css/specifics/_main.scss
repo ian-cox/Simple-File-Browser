@@ -9,10 +9,10 @@ header {
     min-height:5em;
     background-color: $background-color;
     //box-shadow: 0px 20px 30px $background-color;
-    -webkit-transition: height, line-height 0.9s;
-    -moz-transition: height, line-height 0.9s;
-    transition: height, line-height 0.9s;
-    line-height: 4.7em;
+    -webkit-transition: height, margin-top 0.9s;
+    -moz-transition: height, margin-top 0.9s;
+    transition: height, margin-top 0.9s;
+    margin-top: 4.7em;
 }
 
 .fileviewer header{
@@ -21,7 +21,7 @@ header {
 
 .shrink {
     height: 4em;
-    line-height:2.5em;
+    margin-top: 2.5em;
 }
 
 nav{

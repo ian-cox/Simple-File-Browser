@@ -1,9 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 /* Colors */
 /* HTML5 Boilerplate styles - h5bp.com (generated via initializr.com) */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
 html,
 button,
 input,
@@ -496,7 +496,7 @@ textarea {
 
 /* Typography */
 body {
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Sans-Serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Sans-Serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -4164,7 +4164,7 @@ table {
 
 /* Typography */
 body {
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Sans-Serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Sans-Serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -7295,13 +7295,43 @@ dt {
   opacity: 0;
   padding: 0 .5em; }
 
-.user {
+.dropdown {
+  height: 1.5em;
+  overflow: hidden;
   float: right;
-  margin-top: 1.1em; }
-  .user:before {
-    content: "\e074";
-    font-family: 'outline';
-    margin-right: .5em; }
+  list-style-type: none; }
+  .dropdown:hover {
+    height: auto; }
+  .dropdown button {
+    background-color: #1d1d24;
+    border: none;
+    color: #af8e56;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans";
+    font-weight: 300; }
+    .dropdown button:hover {
+      color: #fff; }
+
+.logout:before {
+  content: "\e086";
+  font-family: 'outline';
+  margin-right: .5em; }
+
+.settings:before {
+  content: "\e023";
+  font-family: 'outline';
+  margin-right: .5em; }
+
+.user:before {
+  content: "\e074";
+  font-family: 'outline';
+  margin-right: .5em; }
+
+.name:after {
+  content: "\e05d";
+  font-family: 'outline';
+  margin-left: .5em; }
 
 .avatar {
   width: 2.5em;
@@ -7318,17 +7348,17 @@ header {
   z-index: 90;
   min-height: 5em;
   background-color: #1d1d24;
-  -webkit-transition: height, line-height 0.9s;
-  -moz-transition: height, line-height 0.9s;
-  transition: height, line-height 0.9s;
-  line-height: 4.7em; }
+  -webkit-transition: height, margin-top 0.9s;
+  -moz-transition: height, margin-top 0.9s;
+  transition: height, margin-top 0.9s;
+  margin-top: 4.7em; }
 
 .fileviewer header {
   position: fixed; }
 
 .shrink {
   height: 4em;
-  line-height: 2.5em; }
+  margin-top: 2.5em; }
 
 nav {
   overflow: auto;

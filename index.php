@@ -8,7 +8,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   header('Location: index.php');
 }
 
-
+if(isset($_SESSION['login_user'])):
+echo "user is logged in";
+endif; 
 
 
 require_once('kirby/kirby.php');

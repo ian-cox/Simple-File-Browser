@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start(); // start session cookies
 require_once('../config.php');
 ?>
 <!DOCTYPE html>
@@ -17,7 +18,6 @@ else:
   $file = $_GET['file'];
   $ext = $_GET['ext'];
 endif;
-
 ?>
 
 
@@ -61,7 +61,11 @@ endif;
 <body class="language-markup">
   <header>
     <div class="container">
-    <a href="/">Back</a>  
+      
+      <?php if(isset($_SESSION['login_user'])): ?>
+      <a href="/">Back</a>  
+      <?php endif; ?>
+
     <div class='filename'>
     <?php //Check available font metadata and use value most likely to provide acurate font family and font style
 
